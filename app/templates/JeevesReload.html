@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+    <ul>
+        {% for article in news %}
+        <li class="panel">
+            <div class="news-article">
+                <a onclick="getAnotherSiteView('{{article.site_name}}')">
+                    <h5>{{article.site_name}}</h5>
+                </a>
+                <a href="{{article.url}}" target="_blank">
+                    <img src="{{article.image}}">
+                    <p>{{article.title}}</p>
+                </a>
+                <small>
+                    <p class="tag"><img src="/static/images/tag.png">{{article.tag}}</p>
+                    <p class="date">{{article.datetime}}</p>
+                </small>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Jeeves</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="/static/css/Jeeves.css">
+        <link rel="shortcut icon" href="/static/images/Jeeves.ico">
+
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-datepicker.min.css">
+        <script type="text/javascript" src="/static/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap-datepicker.ja.min.js"></script>
+        <script type="text/javascript" src="/static/js/Jeeves.js"></script>
+    </head>
+    <body>
+        <header id="site-header">
+            <h1 class="site-logo">Jeeves</h1>
+            <nav class="gnav">
+                <ul class="gnav__menu">
+                    <li class="gnav__menu__item"><a href="">ALL</a></li>
+                    <li class="gnav__menu__item"><a href="">DIGITAL</a></li>
+                    <li class="gnav__menu__item"><a href="">SETTING</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="main_space">
+            <ul>
+                {% for article in news %}
+                <li class="panel">
+                    <div class="news-article">
+                        <a onclick="getAnotherSiteView('{{article.site_name}}')">
+                            <h5>{{article.site_name}}</h5>
+                        </a>
+                        <a href="{{article.url}}" target="_blank">
+                            <img src="{{article.image}}">
+                            <p>{{article.title}}</p>
+                        </a>
+                        <small>
+                            <p class="tag"><img src="/static/images/tag.png">{{article.tag}}</p>
+                            <p class="date">{{article.datetime}}</p>
+                        </small>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <footer id="site-footer">
+            <div id="calendar"></div>
+        </footer>
+        <script>
+            $(document).ready(function () {
+                $('#calendar').datepicker({
+                    inline: true,
+                    language: "ja",
+                    todayHighlight: true
+                }).on("changeDate", function (event) {
+                    getAnotherDateView(formatDate(event.date, 'yyyy-MM-dd HH:mm:ss'));
+                });
+            });
+
+            var _window = $(window),
+            _header = $('#site-header'),
+            heroBottom;
+        
+            _window.on('scroll',function() {
+                heroBottom = $('#site-header').height();
+                if (_window.scrollTop() > heroBottom) {
+                    _header.addClass('transform');
+                } else {
+                    _header.removeClass('transform');
+                }
+            });
+            
+            _window.trigger('scroll');
+        </script>  
+    </body>
+</html>

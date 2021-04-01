@@ -1,0 +1,8 @@
+Flask
+SQLAlchemy
+feedparser
+beautifulsoup4
+Flask-Script
+tabulate
+requests_oauthlib
+emoji

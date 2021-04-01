@@ -1,0 +1,147 @@
+/* 共通設定 */
+body {
+    background-color: rgb(228, 224, 216);
+    font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+/* ナビゲーション設定 */
+#site-header {
+    background-color: rgb(65, 65, 65);
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    transition: 0.3s;
+    box-shadow:0px 20px 18px -20px black;
+}
+
+#site-header.transform {
+    top: -80px;
+}
+
+.site-logo {
+    font-family: "Forte";
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.gnav__menu {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+
+.gnav__menu__item {
+    text-align: center;
+    width: 100px;
+    margin-left: 20px;
+    list-style-type: none;
+    padding: 0px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+
+.gnav__menu__item:hover {
+    border-bottom: 1px solid white;
+}
+
+.gnav__menu__item a {
+    color: white;
+    text-decoration: none;
+}
+
+/* 記事パネル設定 */
+#main_space {
+    margin-top: auto;
+}
+
+#main_space ul {
+    padding-right: 40px;
+    list-style-type: none;
+    display:grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    padding-bottom: 20px;
+}
+
+.panel {
+    list-style-type: none;
+}
+
+.news-article {
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 7px gray;
+    background-color: white;
+    transition: 0.1s;
+}
+
+.news-article:hover {
+    box-shadow: 0 0 15px black;
+}
+
+.news-article a {
+    text-decoration: none;
+    color: black;
+}
+
+.news-article a:hover {
+    cursor: pointer;
+}
+
+.news-article h5 {
+    background-color: rgb(65, 65, 65);
+    color: white;
+    margin-bottom: 0px;
+    padding: 3px;
+    text-align: center;
+}
+
+.news-article h5:hover {
+    color: crimson;
+}
+
+.news-article img {
+    width: 280px;
+    height: 180px;
+}
+
+.news-article p {
+    padding: 5px;
+    margin: 0px;
+}
+
+.news-article small {
+    display: flex;
+}
+
+.tag {
+    text-align: left;
+    flex: auto;
+}
+
+.tag img{
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+.date {
+    text-align: right;
+    flex: auto;
+}
+
+#site-footer {
+    box-shadow:0px -20px 18px -20px black;
+    background-color: rgb(65, 65, 65);
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+#calendar {
+    display:inline-block; 
+    color: white;
+}
