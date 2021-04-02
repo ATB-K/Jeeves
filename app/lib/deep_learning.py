@@ -6,7 +6,7 @@ MODEL_NAME = "model.bin"
 TAG = [
     ["__label__1", "政治・経済[AI]"],
     ["__label__2", "テクノロジー[AI]"],
-    ["__label__3", "ゲーム[AI]"]
+    ["__label__3", "ゲーム[AI]"],
     ["__label__4", "グルメ[AI]"]
     ]
 
